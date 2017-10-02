@@ -1,0 +1,14 @@
+---
+# Ansible playbook for a GitLab server.
+#
+# @todo - Install postfix `yum -y install postfix`.
+#
+# @author Jeff Geerling (2014).
+
+- hosts: all
+  gather_facts: yes
+  become: yes
+  become_method: sudo
+  roles:
+    - nginx
+

@@ -1,0 +1,46 @@
+---
+# tasks file for nginx
+
+- name: NGINX | Installing NGINX repo rpm
+  yum:
+    name: epel-release
+ 
+- name: NGINX | Installing NGINX
+  yum:
+    name: nginx
+    state: latest
+
+- name: Configure Nginx
+  template: src=www.myfirstpage.com.conf dest=/etc/nginx/conf.d/
+  notify: restart nginx
+
+- name: Configure Nginx
+  template: src=www.mysecondpage.com.conf dest=/etc/nginx/conf.d/
+  notify: restart nginx
+
+- name: Configure Nginx
+  template: src=www.mythirdpage.com.conf dest=/etc/nginx/conf.d/
+  notify: restart nginx
+
+- name: Copy the 1.html script
+  copy:     
+    src: 1.html
+    dest: /usr/share/nginx/html/1.html
+    mode: 0755
+
+- name: copy the 2.html file
+  copy:
+    src: 2.html
+    dest: /usr/share/nginx/html/2.html
+    mode: 0755
+
+- name: copy the 3.html file
+  copy:
+    src: 3.html
+    dest: /usr/share/nginx/html/3.html
+    mode: 0755
+
+- name: NGINX | Starting NGINX
+  service:
+    name: nginx
+    state: started
