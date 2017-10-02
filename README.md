@@ -2,7 +2,7 @@
 
 Task 1                                       Docker Task
 
-Task 1                                       Ansible Task
+Task 2                                       Ansible Task
 
 Create Below Entries On The Hosts File Where The Browser (Host System) Is Running
 
